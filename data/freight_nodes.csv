@@ -1,0 +1,48 @@
+"NODE_ID","NAME","LATITUDE","LONGITUDE","IS_JUNCTION","IS_SERVICE_CENTER"
+"NYC","New York, NY",40.7128,-74.006,false,true
+"BOS","Boston, MA",42.3601,-71.0589,false,false
+"MIA","Miami, FL",25.7617,-80.1918,false,false
+"SEA","Seattle, WA",47.6062,-122.3321,false,true
+"PDX","Portland, OR",45.5152,-122.6784,false,true
+"SFO","San Francisco, CA",37.7749,-122.4194,false,false
+"LAX","Los Angeles, CA",34.0522,-118.2437,false,true
+"SDG","San Diego, CA",32.7157,-117.1611,false,false
+"PHX","Phoenix, AZ",33.4484,-112.074,false,true
+"LVS","Las Vegas, NV",36.1699,-115.1398,true,true
+"SLC","Salt Lake City, UT",40.7608,-111.891,true,true
+"DEN","Denver, CO",39.7392,-104.9903,true,true
+"ABQ","Albuquerque, NM",35.0844,-106.6504,false,true
+"OKC","Oklahoma City, OK",35.4676,-97.5164,false,true
+"DAL","Dallas, TX",32.7767,-96.797,false,true
+"SAT","San Antonio, TX",29.4241,-98.4936,false,true
+"HOU","Houston, TX",29.7604,-95.3698,false,true
+"MEM","Memphis, TN",35.1495,-90.049,true,true
+"NSH","Nashville, TN",36.1627,-86.7816,false,true
+"ATL","Atlanta, GA",33.749,-84.388,true,true
+"JAX","Jacksonville, FL",30.3322,-81.6557,false,true
+"CLT","Charlotte, NC",35.2271,-80.8431,false,true
+"IND","Indianapolis, IN",39.7684,-86.1581,true,true
+"CHI","Chicago, IL",41.8781,-87.6298,true,true
+"STL","St. Louis, MO",38.627,-90.1994,true,true
+"KCI","Kansas City, MO",39.0997,-94.5786,true,true
+"MSP","Minneapolis, MN",44.9778,-93.265,false,false
+"CLE","Cleveland, OH",41.4993,-81.6944,false,true
+"PIT","Pittsburgh, PA",40.4406,-79.9959,true,false
+"CIN","Cincinnati, OH",39.1031,-84.512,true,false
+"DET","Detroit, MI",42.3314,-83.0458,true,false
+"ELP","El Paso, TX",31.7619,-106.485,true,false
+"TUS","Tucson, AZ",32.2226,-110.9747,true,false
+"BOI","Boise, ID",43.615,-116.2023,true,false
+"RNO","Reno, NV",39.5296,-119.8138,true,false
+"SAC","Sacramento, CA",38.5816,-121.4944,true,false
+"OMA","Omaha, NE",41.2565,-95.9345,true,false
+"DSM","Des Moines, IA",41.5868,-93.625,true,false
+"LIT","Little Rock, AR",34.7465,-92.2896,true,false
+"BHM","Birmingham, AL",33.5207,-86.8025,true,false
+"SPO","Spokane, WA",47.6588,-117.426,true,false
+"BIL","Billings, MT",45.7833,-108.5007,true,false
+"SDF","Sioux Falls, SD",43.546,-96.7313,true,false
+"CHY","Cheyenne, WY",41.14,-104.8202,true,false
+"RDD","Redding, CA",40.5865,-122.3917,true,false
+"FLG","Flagstaff, AZ",35.1983,-111.6513,false,false
+"DCA","Washington DC, DC",38.9,-77.04,false,false

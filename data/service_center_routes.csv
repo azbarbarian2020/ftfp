@@ -1,0 +1,60 @@
+"CENTER_ID","CENTER_NAME","CITY","STATE_CODE","LATITUDE","LONGITUDE","ENTITY_ID","ROUTE_NAME","ROUTE_POSITION"
+17,"Los Angeles Truck Service","Los Angeles","CA",34.0522,-118.2437,"TRUCK_001","LA to NYC via I-40/I-81",0
+2,"Albuquerque Fleet Center","Albuquerque","NM",35.0844,-106.6504,"TRUCK_001","LA to NYC via I-40/I-81",1
+3,"Oklahoma City Diesel","Oklahoma City","OK",35.4676,-97.5164,"TRUCK_001","LA to NYC via I-40/I-81",2
+4,"Memphis Truck Stop","Memphis","TN",35.1495,-90.049,"TRUCK_001","LA to NYC via I-40/I-81",4
+5,"Nashville Fleet Services","Nashville","TN",36.1627,-86.7816,"TRUCK_001","LA to NYC via I-40/I-81",5
+13,"Charlotte Fleet Services","Charlotte","NC",35.2271,-80.8431,"TRUCK_001","LA to NYC via I-40/I-81",6
+23,"New York Fleet Center","New York","NY",40.7128,-74.006,"TRUCK_001","LA to NYC via I-40/I-81",8
+21,"Seattle Truck Center","Seattle","WA",47.6062,-122.3321,"TRUCK_002","Seattle to Miami via I-90/I-75",0
+11,"Chicago Truck Center","Chicago","IL",41.8781,-87.6298,"TRUCK_002","Seattle to Miami via I-90/I-75",5
+12,"Indianapolis Diesel","Indianapolis","IN",39.7684,-86.1581,"TRUCK_002","Seattle to Miami via I-90/I-75",6
+5,"Nashville Fleet Services","Nashville","TN",36.1627,-86.7816,"TRUCK_002","Seattle to Miami via I-90/I-75",7
+6,"Atlanta Truck Center","Atlanta","GA",33.749,-84.388,"TRUCK_002","Seattle to Miami via I-90/I-75",8
+14,"Jacksonville Truck Stop","Jacksonville","FL",30.3322,-81.6557,"TRUCK_002","Seattle to Miami via I-90/I-75",9
+20,"Cleveland Fleet Services","Cleveland","OH",41.4993,-81.6944,"TRUCK_003","Boston to San Diego via I-80/I-15",0
+20,"Cleveland Fleet Services","Cleveland","OH",41.4993,-81.6944,"TRUCK_003","Boston to San Diego via I-80/I-15",1
+11,"Chicago Truck Center","Chicago","IL",41.8781,-87.6298,"TRUCK_003","Boston to San Diego via I-80/I-15",2
+9,"Denver Truck Service","Denver","CO",39.7392,-104.9903,"TRUCK_003","Boston to San Diego via I-80/I-15",5
+16,"Salt Lake Fleet","Salt Lake City","UT",40.7608,-111.891,"TRUCK_003","Boston to San Diego via I-80/I-15",7
+15,"Las Vegas Truck Center","Las Vegas","NV",36.1699,-115.1398,"TRUCK_003","Boston to San Diego via I-80/I-15",8
+17,"Los Angeles Truck Service","Los Angeles","CA",34.0522,-118.2437,"TRUCK_003","Boston to San Diego via I-80/I-15",9
+10,"Kansas City Fleet","Kansas City","MO",39.0997,-94.5786,"TRUCK_004","Minneapolis to Houston via I-35",2
+3,"Oklahoma City Diesel","Oklahoma City","OK",35.4676,-97.5164,"TRUCK_004","Minneapolis to Houston via I-35",3
+7,"Dallas Heavy Duty","Dallas","TX",32.7767,-96.797,"TRUCK_004","Minneapolis to Houston via I-35",4
+18,"San Antonio Fleet","San Antonio","TX",29.4241,-98.4936,"TRUCK_004","Minneapolis to Houston via I-35",5
+8,"Houston Fleet Repair","Houston","TX",29.7604,-95.3698,"TRUCK_004","Minneapolis to Houston via I-35",6
+22,"Portland Fleet Services","Portland","OR",45.5152,-122.6784,"TRUCK_005","Portland to Atlanta via I-84/I-70/I-75",0
+16,"Salt Lake Fleet","Salt Lake City","UT",40.7608,-111.891,"TRUCK_005","Portland to Atlanta via I-84/I-70/I-75",2
+9,"Denver Truck Service","Denver","CO",39.7392,-104.9903,"TRUCK_005","Portland to Atlanta via I-84/I-70/I-75",4
+10,"Kansas City Fleet","Kansas City","MO",39.0997,-94.5786,"TRUCK_005","Portland to Atlanta via I-84/I-70/I-75",5
+19,"St Louis Truck Center","St Louis","MO",38.627,-90.1994,"TRUCK_005","Portland to Atlanta via I-84/I-70/I-75",6
+5,"Nashville Fleet Services","Nashville","TN",36.1627,-86.7816,"TRUCK_005","Portland to Atlanta via I-84/I-70/I-75",8
+6,"Atlanta Truck Center","Atlanta","GA",33.749,-84.388,"TRUCK_005","Portland to Atlanta via I-84/I-70/I-75",9
+16,"Salt Lake Fleet","Salt Lake City","UT",40.7608,-111.891,"TRUCK_006","SF to Boston via I-80",3
+9,"Denver Truck Service","Denver","CO",39.7392,-104.9903,"TRUCK_006","SF to Boston via I-80",5
+11,"Chicago Truck Center","Chicago","IL",41.8781,-87.6298,"TRUCK_006","SF to Boston via I-80",8
+20,"Cleveland Fleet Services","Cleveland","OH",41.4993,-81.6944,"TRUCK_006","SF to Boston via I-80",9
+21,"Seattle Truck Center","Seattle","WA",47.6062,-122.3321,"TRUCK_007","Seattle to Phoenix via I-5/I-10",0
+22,"Portland Fleet Services","Portland","OR",45.5152,-122.6784,"TRUCK_007","Seattle to Phoenix via I-5/I-10",1
+17,"Los Angeles Truck Service","Los Angeles","CA",34.0522,-118.2437,"TRUCK_007","Seattle to Phoenix via I-5/I-10",3
+1,"Phoenix Truck Service","Phoenix","AZ",33.4484,-112.074,"TRUCK_007","Seattle to Phoenix via I-5/I-10",4
+20,"Cleveland Fleet Services","Cleveland","OH",41.4993,-81.6944,"TRUCK_008","NYC to LA via I-80/I-15",2
+11,"Chicago Truck Center","Chicago","IL",41.8781,-87.6298,"TRUCK_008","NYC to LA via I-80/I-15",3
+9,"Denver Truck Service","Denver","CO",39.7392,-104.9903,"TRUCK_008","NYC to LA via I-80/I-15",6
+16,"Salt Lake Fleet","Salt Lake City","UT",40.7608,-111.891,"TRUCK_008","NYC to LA via I-80/I-15",8
+15,"Las Vegas Truck Center","Las Vegas","NV",36.1699,-115.1398,"TRUCK_008","NYC to LA via I-80/I-15",9
+17,"Los Angeles Truck Service","Los Angeles","CA",34.0522,-118.2437,"TRUCK_008","NYC to LA via I-80/I-15",10
+14,"Jacksonville Truck Stop","Jacksonville","FL",30.3322,-81.6557,"TRUCK_009","Miami to Seattle via I-75/I-90",1
+6,"Atlanta Truck Center","Atlanta","GA",33.749,-84.388,"TRUCK_009","Miami to Seattle via I-75/I-90",2
+5,"Nashville Fleet Services","Nashville","TN",36.1627,-86.7816,"TRUCK_009","Miami to Seattle via I-75/I-90",3
+12,"Indianapolis Diesel","Indianapolis","IN",39.7684,-86.1581,"TRUCK_009","Miami to Seattle via I-75/I-90",4
+11,"Chicago Truck Center","Chicago","IL",41.8781,-87.6298,"TRUCK_009","Miami to Seattle via I-75/I-90",5
+21,"Seattle Truck Center","Seattle","WA",47.6062,-122.3321,"TRUCK_009","Miami to Seattle via I-75/I-90",10
+9,"Denver Truck Service","Denver","CO",39.7392,-104.9903,"TRUCK_010","Denver to Jacksonville via I-70/I-75",0
+10,"Kansas City Fleet","Kansas City","MO",39.0997,-94.5786,"TRUCK_010","Denver to Jacksonville via I-70/I-75",1
+19,"St Louis Truck Center","St Louis","MO",38.627,-90.1994,"TRUCK_010","Denver to Jacksonville via I-70/I-75",2
+12,"Indianapolis Diesel","Indianapolis","IN",39.7684,-86.1581,"TRUCK_010","Denver to Jacksonville via I-70/I-75",3
+5,"Nashville Fleet Services","Nashville","TN",36.1627,-86.7816,"TRUCK_010","Denver to Jacksonville via I-70/I-75",4
+6,"Atlanta Truck Center","Atlanta","GA",33.749,-84.388,"TRUCK_010","Denver to Jacksonville via I-70/I-75",5
+14,"Jacksonville Truck Stop","Jacksonville","FL",30.3322,-81.6557,"TRUCK_010","Denver to Jacksonville via I-70/I-75",6

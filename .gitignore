@@ -1,0 +1,31 @@
+# Dependencies
+__pycache__/
+*.pyc
+*.pyo
+node_modules/
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+*.p8
+*.pem
+
+# Docker
+*.tar
+
+# Large data (use git-lfs or download separately)
+# data/detour_routes.csv
+
+# Snowflake
+.snowflake/cortex/

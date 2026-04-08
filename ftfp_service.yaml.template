@@ -1,0 +1,17 @@
+spec:
+  containers:
+  - name: "ftfp"
+    image: "__IMAGE_PATH__"
+    env:
+      SNOWFLAKE_WAREHOUSE: "NEW_FTFP_WH"
+    resources:
+      limits:
+        memory: "2G"
+        cpu: "2"
+      requests:
+        memory: "1G"
+        cpu: "1"
+  endpoints:
+  - name: "app"
+    port: 8000
+    public: true
