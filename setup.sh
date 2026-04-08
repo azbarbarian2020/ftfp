@@ -105,14 +105,25 @@ create_infrastructure() {
 seed_data() {
     echo -e "${BOLD}[2/7] Loading seed data from static exports...${NC}"
     echo "  Reassembling split files..."
-    if [ ! -f "$SCRIPT_DIR/data/detour_routes.csv.gz" ] && ls "$SCRIPT_DIR/data/detour_routes.csv.gz.part_"* &>/dev/null; then
-        cat "$SCRIPT_DIR/data/detour_routes.csv.gz.part_"* > "$SCRIPT_DIR/data/detour_routes.csv.gz"
+    if ls "$SCRIPT_DIR/data/detour_routes.csv.gz.part_"* &>/dev/null; then
+        cat "$SCRIPT_DIR/data/detour_routes.csv.gz.part_"* > /tmp/detour_routes.csv.gz
         echo "    Reassembled detour_routes.csv.gz"
     fi
 
     echo "  Uploading CSV files to DATA_STAGE..."
 
-    snow stage copy "$SCRIPT_DIR/data/" @NEW_FTFP.DATA.DATA_STAGE/seed/ --recursive --overwrite --database NEW_FTFP --schema DATA --connection "$CONNECTION_NAME"
+    for f in "$SCRIPT_DIR"/data/*.csv "$SCRIPT_DIR"/data/*.csv.gz; do
+        [ -f "$f" ] || continue
+        local basename=$(basename "$f")
+        [[ "$basename" == detour_routes.csv.gz.part_* ]] && continue
+        echo "    Uploading $basename..."
+        snow stage copy "$f" @NEW_FTFP.DATA.DATA_STAGE/seed/ --overwrite --database NEW_FTFP --schema DATA --connection "$CONNECTION_NAME"
+    done
+
+    if [ -f /tmp/detour_routes.csv.gz ]; then
+        echo "    Uploading detour_routes.csv.gz (large, ~117MB)..."
+        snow stage copy /tmp/detour_routes.csv.gz @NEW_FTFP.DATA.DATA_STAGE/seed/ --overwrite --database NEW_FTFP --schema DATA --connection "$CONNECTION_NAME"
+    fi
 
     echo "  Loading tables from CSV..."
     local CSV_FORMAT="TYPE = CSV COMPRESSION = AUTO FIELD_OPTIONALLY_ENCLOSED_BY = '\"' PARSE_HEADER = TRUE FIELD_DELIMITER = ',' NULL_IF = ('', '\\\\N', '\"\\\\N\"')"
