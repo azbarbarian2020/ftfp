@@ -153,6 +153,7 @@ seed_data() {
     load_table FREIGHT_NODES freight_nodes.csv
     load_table FREIGHT_EDGES freight_edges.csv.gz
     load_table TRUCK_ROUTE_NODES truck_route_nodes.csv
+    load_table ADJACENCY_LIST adjacency_list.csv.gz
 
     echo "  Loading detour routes (large, may take a minute)..."
     load_table DETOUR_ROUTES detour_routes.csv.gz
