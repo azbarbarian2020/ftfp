@@ -115,7 +115,7 @@ seed_data() {
     snow stage copy "$SCRIPT_DIR/data/" @NEW_FTFP.DATA.DATA_STAGE/seed/ --recursive --overwrite --database NEW_FTFP --schema DATA --connection "$CONNECTION_NAME"
 
     echo "  Loading tables from CSV..."
-    local CSV_FORMAT="TYPE = CSV COMPRESSION = AUTO FIELD_OPTIONALLY_ENCLOSED_BY = '\"' SKIP_HEADER = 1 FIELD_DELIMITER = ',' NULL_IF = ('', '\\\\N', '\"\\\\N\"')"
+    local CSV_FORMAT="TYPE = CSV COMPRESSION = AUTO FIELD_OPTIONALLY_ENCLOSED_BY = '\"' PARSE_HEADER = TRUE FIELD_DELIMITER = ',' NULL_IF = ('', '\\\\N', '\"\\\\N\"')"
     local COPY_OPTS="MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE ON_ERROR = 'ABORT_STATEMENT'"
 
     load_table() {
