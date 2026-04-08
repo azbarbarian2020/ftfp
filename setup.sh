@@ -298,8 +298,20 @@ for row in data:
         "$SCRIPT_DIR" \
         --load
 
-    echo "  Pushing image..."
-    docker push "$IMAGE_TAG"
+    echo "  Pushing image (with retry for TLS timeouts)..."
+    local MAX_RETRIES=3
+    for attempt in $(seq 1 $MAX_RETRIES); do
+        if docker push "$IMAGE_TAG" 2>&1; then
+            break
+        fi
+        if [ $attempt -eq $MAX_RETRIES ]; then
+            echo -e "${RED}Failed to push after $MAX_RETRIES attempts.${NC}"
+            exit 1
+        fi
+        echo -e "${YELLOW}  Push attempt $attempt failed, re-authenticating and retrying in 10s...${NC}"
+        sleep 10
+        snow spcs image-registry login --connection "$CONNECTION_NAME"
+    done
     echo -e "${GREEN}✓ Image pushed to Snowflake registry${NC}\n"
 }
 
