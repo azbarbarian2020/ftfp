@@ -116,58 +116,44 @@ seed_data() {
 
     echo "  Loading tables from CSV..."
     local CSV_FORMAT="TYPE = CSV COMPRESSION = AUTO FIELD_OPTIONALLY_ENCLOSED_BY = '\"' SKIP_HEADER = 1 FIELD_DELIMITER = ',' NULL_IF = ('', '\\\\N', '\"\\\\N\"')"
+    local COPY_OPTS="MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE ON_ERROR = 'ABORT_STATEMENT'"
+
+    load_table() {
+        local TABLE=$1
+        local FILE=$2
+        echo "    Loading $TABLE..."
+        snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.$TABLE;"
+        snow_sql -q "COPY INTO NEW_FTFP.DATA.$TABLE FROM @NEW_FTFP.DATA.DATA_STAGE/seed/$FILE FILE_FORMAT = ($CSV_FORMAT) $COPY_OPTS;"
+    }
 
     echo "  Loading seed tables..."
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.NORMAL_SEED;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.NORMAL_SEED FROM @NEW_FTFP.DATA.DATA_STAGE/seed/normal_seed.csv.gz FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
-
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.ENGINE_FAILURE_SEED;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.ENGINE_FAILURE_SEED FROM @NEW_FTFP.DATA.DATA_STAGE/seed/engine_failure_seed.csv.gz FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
-
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.TRANSMISSION_FAILURE_SEED;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.TRANSMISSION_FAILURE_SEED FROM @NEW_FTFP.DATA.DATA_STAGE/seed/transmission_failure_seed.csv.gz FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
-
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.ELECTRICAL_FAILURE_SEED;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.ELECTRICAL_FAILURE_SEED FROM @NEW_FTFP.DATA.DATA_STAGE/seed/electrical_failure_seed.csv.gz FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
+    load_table NORMAL_SEED normal_seed.csv.gz
+    load_table ENGINE_FAILURE_SEED engine_failure_seed.csv.gz
+    load_table TRANSMISSION_FAILURE_SEED transmission_failure_seed.csv.gz
+    load_table ELECTRICAL_FAILURE_SEED electrical_failure_seed.csv.gz
 
     echo "  Loading route & service center tables..."
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.TRUCK_ROUTES;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.TRUCK_ROUTES FROM @NEW_FTFP.DATA.DATA_STAGE/seed/truck_routes.csv FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
-
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.ROUTE_WAYPOINTS;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.ROUTE_WAYPOINTS FROM @NEW_FTFP.DATA.DATA_STAGE/seed/route_waypoints.csv.gz FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
-
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.SERVICE_CENTERS;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.SERVICE_CENTERS FROM @NEW_FTFP.DATA.DATA_STAGE/seed/service_centers.csv FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
-
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.SERVICE_CENTER_ROUTES;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.SERVICE_CENTER_ROUTES FROM @NEW_FTFP.DATA.DATA_STAGE/seed/service_center_routes.csv FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
+    load_table TRUCK_ROUTES truck_routes.csv
+    load_table ROUTE_WAYPOINTS route_waypoints.csv.gz
+    load_table SERVICE_CENTERS service_centers.csv
+    load_table SERVICE_CENTER_ROUTES service_center_routes.csv
 
     echo "  Loading graph tables..."
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.FREIGHT_NODES;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.FREIGHT_NODES FROM @NEW_FTFP.DATA.DATA_STAGE/seed/freight_nodes.csv FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
-
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.FREIGHT_EDGES;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.FREIGHT_EDGES FROM @NEW_FTFP.DATA.DATA_STAGE/seed/freight_edges.csv.gz FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
-
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.TRUCK_ROUTE_NODES;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.TRUCK_ROUTE_NODES FROM @NEW_FTFP.DATA.DATA_STAGE/seed/truck_route_nodes.csv FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
+    load_table FREIGHT_NODES freight_nodes.csv
+    load_table FREIGHT_EDGES freight_edges.csv.gz
+    load_table TRUCK_ROUTE_NODES truck_route_nodes.csv
 
     echo "  Loading detour routes (large, may take a minute)..."
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.DETOUR_ROUTES;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.DETOUR_ROUTES FROM @NEW_FTFP.DATA.DATA_STAGE/seed/detour_routes.csv.gz FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
+    load_table DETOUR_ROUTES detour_routes.csv.gz
 
     echo "  Loading failure config and markers..."
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.FAILURE_CONFIG;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.FAILURE_CONFIG FROM @NEW_FTFP.DATA.DATA_STAGE/seed/failure_config.csv FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
-
-    snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.FIRST_FAILURE_MARKERS;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.FIRST_FAILURE_MARKERS FROM @NEW_FTFP.DATA.DATA_STAGE/seed/first_failure_markers.csv FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
+    load_table FAILURE_CONFIG failure_config.csv
+    load_table FIRST_FAILURE_MARKERS first_failure_markers.csv
 
     echo "  Loading ML training data (2.9M rows, may take a minute)..."
     snow stage copy "$SCRIPT_DIR/data/training/" @NEW_FTFP.DATA.DATA_STAGE/training/ --recursive --overwrite --database NEW_FTFP --schema DATA --connection "$CONNECTION_NAME"
     snow_sql -q "TRUNCATE TABLE IF EXISTS NEW_FTFP.DATA.TRAINING_TBL;"
-    snow_sql -q "COPY INTO NEW_FTFP.DATA.TRAINING_TBL FROM @NEW_FTFP.DATA.DATA_STAGE/training/ FILE_FORMAT = ($CSV_FORMAT) ON_ERROR = 'ABORT_STATEMENT';"
+    snow_sql -q "COPY INTO NEW_FTFP.DATA.TRAINING_TBL FROM @NEW_FTFP.DATA.DATA_STAGE/training/ FILE_FORMAT = ($CSV_FORMAT) $COPY_OPTS;"
 
     echo "  Uploading ML models to ML_MODELS stage..."
     snow stage copy "$SCRIPT_DIR/models/" @NEW_FTFP.DATA.ML_MODELS/models/ --overwrite --database NEW_FTFP --schema DATA --connection "$CONNECTION_NAME"
