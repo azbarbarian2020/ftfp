@@ -146,7 +146,7 @@ All UDFs load models from `@ML_MODELS/models/` using `joblib` + `xgboost` packag
 ## Quick Start
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/azbarbarian2020/ftfp.git
 cd ftfp
 ./setup.sh
 ```
