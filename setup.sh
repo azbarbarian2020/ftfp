@@ -176,10 +176,10 @@ seed_data() {
 # Step 3: Create views and ML functions
 # -------------------------------------------------------------------------
 create_views_and_functions() {
-    echo -e "${BOLD}[3/7] Creating views and ML UDFs...${NC}"
-    snow_sql -f "$SCRIPT_DIR/snowflake/create_views.sql"
+    echo -e "${BOLD}[3/7] Creating ML UDFs and views...${NC}"
     snow_sql -f "$SCRIPT_DIR/snowflake/create_functions.sql"
-    echo -e "${GREEN}✓ Views and functions created${NC}\n"
+    snow_sql -f "$SCRIPT_DIR/snowflake/create_views.sql"
+    echo -e "${GREEN}✓ Functions and views created${NC}\n"
 }
 
 # -------------------------------------------------------------------------
